@@ -23,8 +23,18 @@ export class ProjectComponent implements OnInit {
     };
   }
 
-  add() {
-    this.tasks.push("Kolejny task");
+  add(task) {
+    if (task) {
+      this.tasks.push(task);
+    }
+  }
+
+  deleteTasks(task: string) {
+    for (let i = 0; i < this.tasks.length; i++) {
+      if (this.tasks[i] === task) {
+        this.tasks.splice(i, 1);
+      }
+    }
   }
 }
 
